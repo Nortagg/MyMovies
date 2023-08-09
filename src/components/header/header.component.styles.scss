@@ -1,0 +1,225 @@
+.header-container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 10%, rgb(17, 23, 43) 100%);
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 5px 4px rgba(2, 2, 2, 0.4);
+  .movies-title {
+    position: absolute;
+    left: 0;
+    padding: 0.5rem;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: 500ms;
+    .break {
+      color: rgb(92, 91, 91);
+    }
+    .tvS {
+      color: goldenrod;
+    }
+  }
+  .movies-title:hover {
+    border-radius: 0 1rem 1rem 0;
+    color: goldenrod;
+    font-weight: bold;
+    .tvS {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+  }
+  .input-icon {
+    display: inline-block;
+    width: 272px;
+    height: 30px;
+    .input-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+      color: goldenrod;
+      font-size: 22px;
+      margin-top: 6px;
+      border-bottom: 1px solid rgb(255, 255, 255, 0.8);
+      transition: 1s;
+      text-transform: capitalize;
+    }
+    .input-bar:focus {
+      outline: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .input-bar::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .input-bar:focus::placeholder {
+      opacity: 0.5;
+      transition: 1s;
+    }
+    .input-bar:focus + .search-icon {
+      color: goldenrod;
+    }
+    .search-icon {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -1.9rem;
+      left: 15.3rem;
+      transform: scale(1.4);
+    }
+  }
+
+  .error {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    top: -10px;
+    left: 58%;
+    color: goldenrod;
+    font-weight: bold;
+    background: linear-gradient(
+      280deg,
+      rgb(0, 0, 0) 10%,
+      rgb(60, 81, 151) 100%
+    );
+    border-radius: 0.4em;
+    height: 20px;
+    text-shadow: 0px 2px 3px black;
+  }
+
+  .error:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-right-color: rgb(60, 81, 151);
+    border-left: 0;
+    margin-top: -6px;
+    margin-left: -6px;
+  }
+  .favorites-log-out-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .log-out-header-button {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 1rem;
+      color: white;
+      border: none;
+      background-color: transparent;
+      box-shadow: 0px 0px 3px -1px goldenrod;
+      font-size: 14px;
+      font-weight: bold;
+      width: 80px;
+      height: 25px;
+      border-radius: 1rem;
+      &:hover {
+        box-shadow: 0px 1px 5px -1px goldenrod;
+      }
+    }
+    .favorites-link {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 7rem;
+      color: white;
+      text-decoration: none;
+      background-color: transparent;
+      box-shadow: 0px 0px 3px -1px goldenrod;
+      font-size: 14px;
+      font-weight: bold;
+      width: 80px;
+      height: 25px;
+      border-radius: 1rem;
+      &:hover {
+        box-shadow: 0px 1px 5px -1px goldenrod;
+      }
+    }
+    .popUp {
+      position: absolute;
+      top: 49rem;
+      right: 2rem;
+      width: max-content;
+      padding: 20px;
+      border-radius: 4px;
+      background-color: #141619;
+      color: #f6f5f9;
+      box-shadow: 0 1px 5px -1px rgba(0, 0, 0);
+      border-radius: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      animation: fade-in 4s linear forwards;
+    }
+    .popUp-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .popUp-progress {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: calc(100% - 10px);
+      height: 3px;
+      transform: scale(0);
+      transform-origin: left;
+      background-image: linear-gradient(to right, #539bdb, #3250bf);
+      border-radius: inherit;
+      animation: load 3s 0.25s linear forwards;
+    }
+    @keyframes fade-in {
+      5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes load {
+      to {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .Login-link {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    width: 80px;
+    height: 25px;
+    border-radius: 1rem;
+    right: 1rem;
+    box-shadow: 0px 0px 3px -1px goldenrod;
+    &:hover {
+      box-shadow: 0px 1px 5px -1px goldenrod;
+    }
+  }
+}

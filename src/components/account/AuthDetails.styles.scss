@@ -1,0 +1,120 @@
+.log-out-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .email-logged-in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 3rem;
+    animation: Breathe 2s linear infinite;
+    @keyframes Breathe {
+      0% {
+        box-shadow: 0px 0px 10px -5px pink;
+      }
+      50% {
+        box-shadow: 0px 0px 15px -2.5px pink;
+      }
+      100% {
+        box-shadow: 0px 0px 10px -5px pink;
+      }
+    }
+    .email-info {
+      margin: 5px 0;
+    }
+    .check-icon {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: greenyellow;
+      width: 250px;
+      height: 25px;
+      font-size: 24px;
+      margin: 5px 0;
+      filter: drop-shadow(0px 1px 1px black);
+      .welcome-txt {
+        margin: 0;
+        color: rgb(226, 245, 197);
+      }
+    }
+    .email-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 250px;
+      height: 25px;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .log-out-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      color: rgb(255, 255, 255);
+      background: linear-gradient(180deg, #460247 30%, #000000 100%);
+      width: 250px;
+      height: 30px;
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.5s;
+      border-radius: 1rem;
+    }
+    .log-out-button:hover {
+      box-shadow: 0px 0px 3px 1px #cc04cf;
+    }
+  }
+  .logged-out-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 100px;
+    box-shadow: 0px 1px 8px -2px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 3rem;
+    .check-icon-red {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: auto;
+      width: 250px;
+      height: 25px;
+
+      font-size: 24px;
+      color: gray;
+      .logged-out-text {
+        margin: 0;
+        color: rgb(190, 0, 0);
+        text-shadow: 0px 1px 3px black;
+      }
+    }
+
+    .login-submit {
+      border: none;
+      margin: auto;
+      background: linear-gradient(180deg, #460247 30%, #000000 100%);
+      width: 200px;
+      height: 30px;
+      font-weight: 500;
+      font-size: 14px;
+      border-radius: 100px;
+      transition: 0.5s;
+      color: white;
+      box-shadow: 0px 1px 4px 0px #0a0a0a;
+    }
+    .login-submit:hover {
+      box-shadow: 0px 1px 4px -1px #f8f8f8;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+.form-register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .register-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 595px;
+    padding: 2rem;
+    background: linear-gradient(
+      0deg,
+      rgba(85, 1, 85, 0.5) 40%,
+      rgb(0, 0, 0) 100%
+    );
+    box-shadow: 0px 2px 5px -1px rgb(0, 0, 0);
+    border-radius: 2rem;
+    z-index: 1;
+    .register-title {
+      font-size: 40px;
+      margin: 3rem 0;
+    }
+    label {
+      text-transform: capitalize;
+      width: 270px;
+      text-align: left;
+      color: rgb(212, 212, 212);
+      padding: 5px;
+      font-size: 16px;
+    }
+    input {
+      border: none;
+      box-shadow: 0px 2px 5px -1px rgb(0, 0, 0);
+      border-radius: 2px;
+      background-color: transparent;
+      padding: 6px 5px;
+      width: 260px;
+      height: 20px;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    input::placeholder {
+      color: rgb(241, 239, 239);
+    }
+
+    input:focus {
+      outline: none;
+      box-shadow: 0px 2px 10px rgb(0, 0, 0);
+    }
+    .error-message {
+      font-size: 14px;
+      color: rgb(253, 47, 47);
+      font-weight: 600;
+    }
+    .register-submit {
+      border: none;
+      margin: auto;
+      background: linear-gradient(180deg, #460247 30%, #000000 100%);
+      width: 200px;
+      height: 30px;
+      font-weight: 500;
+      font-size: 14px;
+      border-radius: 100px;
+      transition: 0.5s;
+      color: white;
+      box-shadow: 0px 1px 4px 0px #0a0a0a;
+      &:hover {
+        box-shadow: 0px 1px 4px -1px #f8f8f8;
+      }
+    }
+    .link-to-login {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: auto;
+      transition: 0.3s;
+      &:hover {
+        color: rgb(255, 255, 255);
+        font-weight: bolder;
+      }
+    }
+    .link-home {
+      position: absolute;
+      top: 7rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      background: linear-gradient(180deg, #460247 30%, #000000 100%);
+      width: 100px;
+      height: 30px;
+      border-radius: 1rem;
+      margin: 10px 0;
+      box-shadow: 0px 1px 3px #460247;
+    }
+    .link-home:hover .link-home-text {
+      font-size: 0;
+    }
+    .link-home:hover .link-home-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      margin-left: 5px;
+      color: rgb(255, 255, 255);
+      filter: drop-shadow(0px 1px 2px black);
+    }
+    .link-home-text {
+      font-size: 21px;
+      color: whitesmoke;
+      transition: 200ms;
+    }
+    .link-home-icon {
+      display: none;
+    }
+  }
+}
