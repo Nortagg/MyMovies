@@ -3,18 +3,22 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-
 import { resetUser, userSelector } from "../../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const HeaderPart = ({ inputValue, handleChange }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const dispatch = useDispatch();
+  const navigateHome = useNavigate();
 
-  const { isLoggedIn, email } = useSelector(userSelector);
+  const { isLoggedIn } = useSelector(userSelector);
 
   const logOutOfApp = () => {
     dispatch(resetUser());
+    setTimeout(() => {
+      navigateHome("/");
+    }, 1000);
   };
 
   const handleKeyDown = (e) => {
@@ -57,12 +61,6 @@ const HeaderPart = ({ inputValue, handleChange }) => {
           <button className="log-out-header-button" onClick={logOutOfApp}>
             Log Out
           </button>
-          <div className="popUp">
-            <p className="popUp-text">
-              Welcome back <br /> {email}
-            </p>
-            <span className="popUp-progress"></span>
-          </div>
         </div>
       ) : (
         <Link className="Login-link" to="/Login">

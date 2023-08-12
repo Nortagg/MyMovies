@@ -3,7 +3,7 @@ import Content from "./home.content.component";
 import WelcomeCard from "./welcome.card";
 import { PiPopcorn } from "react-icons/pi";
 
-const HomePage = ({ loading, movieData, addToFavorites }) => {
+const HomePage = ({ loading, movieData }) => {
   return (
     <div className="form-wrapper">
       {loading ? (
@@ -18,7 +18,7 @@ const HomePage = ({ loading, movieData, addToFavorites }) => {
       ) : !movieData.length ? (
         <WelcomeCard />
       ) : (
-        <Content movieData={movieData} addToFavorites={addToFavorites} />
+        <Content movieData={movieData} />
       )}
     </div>
   );

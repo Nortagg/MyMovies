@@ -14,7 +14,7 @@ const Register = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const navigate = useNavigate();
+  const navigateLogin = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -27,7 +27,9 @@ const Register = () => {
             uid: userCredential.user.uid,
           })
         );
-        navigate("/Login");
+        setTimeout(() => {
+          navigateLogin("/Login");
+        }, 2000);
       })
       .catch((error) => {
         console.log(error);

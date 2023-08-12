@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./home.content.component.styles.scss";
 import SelectedCard from "./selected.card.component";
 import { AiFillStar } from "react-icons/ai";
 import { TbHeartPlus } from "react-icons/tb";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { userSelector } from "../../redux/userSlice";
 
-const Content = ({ movieData, addToFavorites }) => {
+const Content = ({ movieData }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const { uid } = useSelector(userSelector);
 
   const handleMovieClick = (movie) => {
     if (selectedMovie === movie) {
@@ -14,6 +20,19 @@ const Content = ({ movieData, addToFavorites }) => {
       setSelectedMovie(movie);
     }
   };
+
+  async function addFavoriteMovie(movie) {
+    try {
+      await addDoc(collection(db, "favorites"), {
+        title: movie["#TITLE"],
+        poster: movie["#IMG_POSTER"],
+        url: movie["#IMDB_URL"],
+        uid: uid,
+      });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+  }
 
   return (
     <div className="grid-card">
@@ -51,7 +70,7 @@ const Content = ({ movieData, addToFavorites }) => {
               </div>
               <button
                 className="add-to-favorites-button"
-                onClick={addToFavorites}
+                onClick={() => addFavoriteMovie(movie)}
               >
                 <TbHeartPlus />
               </button>

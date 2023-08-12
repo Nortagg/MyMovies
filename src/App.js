@@ -17,7 +17,6 @@ function App() {
   const [movieData, setMovieData] = useState([]);
   const [loading, setLoading] = useState(false);
   const debouncedValue = useDebounce(inputValue, 500);
-  const [favorites, setFavorites] = useState([]);
 
   const handleChange = (event) => {
     setinputValue(event.target.value);
@@ -35,16 +34,6 @@ function App() {
       };
     });
   }, [dispatch]);
-
-  const addToFavorites = (movie) => {
-    setFavorites([...favorites, movie]);
-  };
-
-  const removeFromFavorites = (index) => {
-    const updatedFavorites = [...favorites];
-    updatedFavorites.splice(index, 1);
-    setFavorites(updatedFavorites);
-  };
 
   useEffect(() => {
     if (debouncedValue !== "") {
@@ -77,25 +66,13 @@ function App() {
         <Route
           exact
           path="/"
-          element={
-            <HomePage
-              movieData={movieData}
-              loading={loading}
-              addToFavorites={addToFavorites}
-            />
-          }
+          element={<HomePage movieData={movieData} loading={loading} />}
         ></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Register" element={<Register />}></Route>
         <Route
           path="/favorites"
-          element={
-            <FavoriteMovies
-              removeFromFavorites={removeFromFavorites}
-              favorites={favorites}
-              movieData={movieData}
-            />
-          }
+          element={<FavoriteMovies movieData={movieData} />}
         ></Route>
       </Routes>
     </div>
