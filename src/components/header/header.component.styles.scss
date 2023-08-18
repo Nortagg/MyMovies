@@ -6,34 +6,41 @@
   align-items: center;
   background: linear-gradient(90deg, rgb(0, 0, 0) 10%, rgb(17, 23, 43) 100%);
   width: 100%;
-  height: 40px;
-  box-shadow: 0 5px 4px rgba(2, 2, 2, 0.4);
-  .movies-title {
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(2, 2, 2, 0.4);
+  .home-link {
+    display: flex;
+    align-items: center;
     position: absolute;
-    left: 0;
-    padding: 0.5rem;
-    font-size: 20px;
+    left: 5px;
     text-decoration: none;
-    color: white;
     cursor: pointer;
-    transition: 500ms;
+    font-size: 20px;
+    padding: 0.5rem;
+    font-weight: bold;
+    .movies-title {
+      color: white;
+      transition: 500ms;
+    }
     .break {
       color: rgb(92, 91, 91);
     }
     .tvS {
+      transition: 500ms;
       color: goldenrod;
     }
   }
-  .movies-title:hover {
-    border-radius: 0 1rem 1rem 0;
-    color: goldenrod;
-    font-weight: bold;
+
+  .home-link:hover {
+    .movies-title {
+      color: goldenrod;
+    }
     .tvS {
       color: rgb(255, 255, 255);
-      font-weight: bold;
     }
   }
   .input-icon {
+    position: relative;
     display: inline-block;
     width: 272px;
     height: 30px;
@@ -45,16 +52,18 @@
       background-color: transparent;
       color: goldenrod;
       font-size: 22px;
-      margin-top: 6px;
+      margin-top: 5px;
       border-bottom: 1px solid rgb(255, 255, 255, 0.8);
       transition: 1s;
       text-transform: capitalize;
+      font-family: "Inter", sans-serif;
     }
     .input-bar:focus {
       outline: none;
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     }
     .input-bar::placeholder {
+      font-family: "Inter", sans-serif;
       color: rgba(255, 255, 255, 0.8);
     }
     .input-bar:focus::placeholder {
@@ -65,14 +74,15 @@
       color: goldenrod;
     }
     .search-icon {
-      position: relative;
+      position: absolute;
       width: 30px;
       height: 30px;
       display: flex;
       justify-content: center;
       align-items: center;
-      top: -1.9rem;
-      left: 15.3rem;
+      top: 0rem;
+      left: 16.5rem;
+      margin-top: 4px;
       transform: scale(1.4);
     }
   }
@@ -111,46 +121,53 @@
     margin-left: -6px;
   }
   .favorites-log-out-container {
+    position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    width: 300px;
+    right: 0.5rem;
 
     .log-out-header-button {
-      position: absolute;
       display: flex;
       justify-content: center;
       align-items: center;
-      right: 1rem;
       color: white;
       border: none;
       background-color: transparent;
-      box-shadow: 0px 0px 3px -1px goldenrod;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: bold;
-      width: 80px;
-      height: 25px;
-      border-radius: 1rem;
+      font-family: "Inter", sans-serif;
+      padding: 0;
       &:hover {
-        box-shadow: 0px 1px 5px -1px goldenrod;
+        border-radius: inherit;
+        border-bottom: 2px solid goldenrod;
       }
     }
-    .favorites-link {
-      position: absolute;
+    .watch-later-link {
       display: flex;
       justify-content: center;
       align-items: center;
-      right: 7rem;
       color: white;
       text-decoration: none;
-      background-color: transparent;
-      box-shadow: 0px 0px 3px -1px goldenrod;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: bold;
-      width: 80px;
-      height: 25px;
-      border-radius: 1rem;
       &:hover {
-        box-shadow: 0px 1px 5px -1px goldenrod;
+        border-radius: inherit;
+        border-bottom: 2px solid goldenrod;
+      }
+    }
+    .favorites-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      &:hover {
+        border-radius: inherit;
+        border-bottom: 2px solid goldenrod;
       }
     }
   }
@@ -161,16 +178,15 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: white;
     width: 80px;
     height: 25px;
-    border-radius: 1rem;
     right: 1rem;
-    box-shadow: 0px 0px 3px -1px goldenrod;
     &:hover {
-      box-shadow: 0px 1px 5px -1px goldenrod;
+      border-radius: inherit;
+      border-bottom: 2px solid goldenrod;
     }
   }
 }

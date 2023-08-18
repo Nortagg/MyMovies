@@ -1,4 +1,5 @@
 import "./selected.card.component.scss";
+import { BsLink45Deg } from "react-icons/bs";
 
 const SelectedCard = ({ selectedMovie }) => {
   return (
@@ -19,6 +20,9 @@ const SelectedCard = ({ selectedMovie }) => {
         ) : (
           <p>No image</p>
         )}
+        <span className="link-to-movie">
+          <BsLink45Deg />
+        </span>
       </a>
       {selectedMovie["#ACTORS"] ? (
         <p className="actors">{selectedMovie["#ACTORS"]}</p>

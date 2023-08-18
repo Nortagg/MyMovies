@@ -8,7 +8,7 @@ const WelcomeCard = () => {
     <>
       <div className="welcome-card">
         <span className="welcome-txt">
-          Welcome! Please enter a movie/TvSeries name to get started
+          Welcome! Kindly provide the name of a movie or TV series to begin.
         </span>
       </div>
       <div className="blur"></div>
@@ -24,12 +24,16 @@ const WelcomeCard = () => {
         <div className="card-9"></div>
         <div className="card-10"></div>
       </div>
-      <div className="popUp">
-        <p className="popUp-text">
-          Welcome back <br /> {email}
-        </p>
-        <span className="popUp-progress"></span>
-      </div>
+      {email ? (
+        <div className="popUp">
+          <p className="popUp-text">
+            Welcome back <br /> <span className="email-popup">{email}</span>
+          </p>
+          <span className="popUp-progress"></span>
+        </div>
+      ) : (
+        ""
+      )}
     </>
   );
 };

@@ -5,7 +5,6 @@ const initialState = {
   email: "",
   uid: "",
   isLoggedIn: false,
-  isFetching: false,
   isSuccess: false,
   isError: false,
   errorMessage: "",
@@ -20,7 +19,6 @@ export const userSlice = createSlice({
         email: action.payload.email,
         uid: action.payload.uid,
         isLoggedIn: true,
-        isFetching: false,
         isSuccess: true,
         isError: false,
       };

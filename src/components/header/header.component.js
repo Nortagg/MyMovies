@@ -32,10 +32,10 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
   return (
     <div className="header-container">
-      <Link className="movies-title" to="/">
-        Movies
+      <Link className="home-link" to="/">
+        <p className="movies-title">Movies</p>
         <span className="break">/</span>
-        <span className="tvS">TvSeries</span>
+        <p className="tvS">TvSeries</p>
       </Link>
       <div className="input-icon">
         <input
@@ -55,6 +55,9 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
       {isLoggedIn ? (
         <div className="favorites-log-out-container">
+          <Link className="watch-later-link" to="/watch-latter">
+            Watch Later
+          </Link>
           <Link className="favorites-link" to="/favorites">
             Favorites
           </Link>

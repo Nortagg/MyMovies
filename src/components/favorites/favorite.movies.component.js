@@ -9,6 +9,7 @@ import { userSelector } from "../../redux/userSlice";
 
 const FavoriteMovies = () => {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+
   const user = useSelector(userSelector);
 
   useEffect(() => {
@@ -60,7 +61,21 @@ const FavoriteMovies = () => {
 
   return (
     <div className="favorites-container">
-      <h1 className="favorites-title">Your favorite movies:</h1>
+      {favoriteMovies.length > 0 ? (
+        <h1 className="favorites-title">Your favorite movies:</h1>
+      ) : (
+        <div className="false-container">
+          <h1 className="favorites-title-false">
+            Your account still don't have any movies added.
+          </h1>
+          <img
+            className="img-false"
+            alt=""
+            src="https://i.pinimg.com/564x/cf/53/e9/cf53e97aa89d3de9afddf182c01179c5.jpg"
+          />
+        </div>
+      )}
+
       <div className="movies-grid-favorites">
         {favoriteMovies.map((movie, index) => (
           <div className="grid-movie-item-favorites" key={index}>

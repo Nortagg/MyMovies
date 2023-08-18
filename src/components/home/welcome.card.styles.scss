@@ -15,7 +15,7 @@
     width: 870px;
     height: 40px;
     background-color: black;
-    font-size: 30px;
+    font-size: 27px;
     box-shadow: 0px 0px 3px rgb(0, 0, 0);
     border-radius: 10px;
   }
@@ -168,36 +168,38 @@
 }
 .popUp {
   position: absolute;
-  top: 49rem;
+  bottom: 2rem;
   right: 2rem;
-  width: max-content;
-  padding: 20px;
-  border-radius: 4px;
-  background-color: #141619;
-  color: #f6f5f9;
+  padding: 15px 25px;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 10%, rgb(17, 23, 43) 100%);
   box-shadow: 0 1px 5px -1px rgba(0, 0, 0);
   border-radius: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  animation: fade-in 4s linear forwards;
+  animation: fade-in 5s linear forwards;
 }
 .popUp-text {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
+  color: #f6f5f9;
+  .email-popup {
+    color: goldenrod;
+  }
 }
 .popUp-progress {
   position: absolute;
   bottom: 5px;
   left: 5px;
   width: calc(100% - 10px);
-  height: 3px;
+  height: 4px;
   transform: scale(0);
   transform-origin: left;
-  background-image: linear-gradient(to right, #539bdb, #3250bf);
+  background-image: linear-gradient(to right, #00dbde, #fc00ff);
   border-radius: inherit;
-  animation: load 3s 0.25s linear forwards;
+  animation: load 4s 0.25s linear forwards;
 }
 @keyframes fade-in {
   5% {
