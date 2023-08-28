@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/userSlice";
 import AuthDetails from "./AuthDetails";
 import { IoMdArrowBack } from "react-icons/io";
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import Decoration from "./decoration";
 
 const Login = () => {
@@ -16,9 +17,18 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
   const [incorrectPassword, setIncorrectPassword] = useState(false);
   const [incorrectEmail, setIncorrectEmail] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState("password");
 
   const navigateHome = useNavigate();
   const dispatch = useDispatch();
+
+  const togglePassword = () => {
+    if (passwordVisible === "password") {
+      setPasswordVisible("text");
+      return;
+    }
+    setPasswordVisible("password");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -89,13 +99,26 @@ const Login = () => {
         )}
         {emailError && <div className="error-message">{emailError}</div>}
         <label htmlFor="password">password</label>
-        <input
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          type="password"
-          placeholder="**********"
-          name="password"
-        />
+        <div className="input-password-container">
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            type={passwordVisible}
+            placeholder="**********"
+            name="password"
+          />
+          <button className="eye-button" type="button" onClick={togglePassword}>
+            {passwordVisible === "password" ? (
+              <span className="password-true">
+                <AiOutlineEyeInvisible />
+              </span>
+            ) : (
+              <span className="password-false">
+                <AiOutlineEye />
+              </span>
+            )}
+          </button>
+        </div>
         {incorrectPassword && (
           <div className="error-message">
             Incorrect password. Please try again.

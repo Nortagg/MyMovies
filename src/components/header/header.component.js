@@ -56,7 +56,7 @@ const HeaderPart = ({ inputValue, handleChange }) => {
       {isLoggedIn ? (
         <div className="favorites-log-out-container">
           <Link className="watch-later-link" to="/watch-latter">
-            Watch Later
+            Watch
           </Link>
           <Link className="favorites-link" to="/favorites">
             Favorites

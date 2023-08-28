@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./favorite.movies.component.styles.scss";
-import { TbHeartMinus } from "react-icons/tb";
+import { TbHeartMinus, TbHeartPlus } from "react-icons/tb";
 import { TfiLink } from "react-icons/tfi";
 import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -66,7 +66,11 @@ const FavoriteMovies = () => {
       ) : (
         <div className="false-container">
           <h1 className="favorites-title-false">
-            Your account still don't have any movies added.
+            Your account still don't have any movies added. <br />
+            You can add movies by pressing on:
+            <span className="false-icon-favorites">
+              <TbHeartPlus />
+            </span>
           </h1>
           <img
             className="img-false"

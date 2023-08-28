@@ -56,6 +56,22 @@
       color: rgb(253, 47, 47);
       font-weight: 600;
     }
+
+    .input-password-container-register {
+      position: relative;
+      .eye-button-register {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+        top: 4px;
+        background-color: transparent;
+        border: none;
+        font-size: 22px;
+        color: white;
+      }
+    }
     .register-submit {
       border: none;
       margin: auto;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./home.content.component.styles.scss";
 import SelectedCard from "./selected.card.component";
 import { AiFillStar } from "react-icons/ai";
-import { TbHeartPlus } from "react-icons/tb";
+import { TbHeartPlus, TbEyeCheck } from "react-icons/tb";
 import { PiClockClockwiseFill } from "react-icons/pi";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -51,14 +51,14 @@ const Content = ({ movieData }) => {
     }
     setTimeout(() => {
       setNote("");
-    }, 4000);
+    }, 2000);
   };
   const addWatchLater = async (movie) => {
     try {
-      const favoritesRef = collection(db, "watchLater");
+      const watchLaterRef = collection(db, "watchLater");
       const querySnapshot = await getDocs(
         query(
-          favoritesRef,
+          watchLaterRef,
           where("title", "==", movie["#TITLE"]),
           where("poster", "==", movie["#IMG_POSTER"]),
           where("url", "==", movie["#IMDB_URL"])
@@ -66,7 +66,7 @@ const Content = ({ movieData }) => {
       );
 
       if (querySnapshot.empty) {
-        await addDoc(favoritesRef, {
+        await addDoc(watchLaterRef, {
           title: movie["#TITLE"],
           poster: movie["#IMG_POSTER"],
           url: movie["#IMDB_URL"],
@@ -81,7 +81,37 @@ const Content = ({ movieData }) => {
     }
     setTimeout(() => {
       setNote("");
-    }, 4000);
+    }, 2000);
+  };
+  const addAlreadyWached = async (movie) => {
+    try {
+      const alreadyWachedRef = collection(db, "alreadyWached");
+      const querySnapshot = await getDocs(
+        query(
+          alreadyWachedRef,
+          where("title", "==", movie["#TITLE"]),
+          where("poster", "==", movie["#IMG_POSTER"]),
+          where("url", "==", movie["#IMDB_URL"])
+        )
+      );
+
+      if (querySnapshot.empty) {
+        await addDoc(alreadyWachedRef, {
+          title: movie["#TITLE"],
+          poster: movie["#IMG_POSTER"],
+          url: movie["#IMDB_URL"],
+          uid: uid,
+        });
+        setNote("Added to Already Wached!");
+      } else {
+        setNote("This item already exists!");
+      }
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
+    setTimeout(() => {
+      setNote("");
+    }, 2000);
   };
 
   return (
@@ -128,6 +158,12 @@ const Content = ({ movieData }) => {
                   onClick={() => addWatchLater(movie)}
                 >
                   <PiClockClockwiseFill />
+                </button>{" "}
+                <button
+                  className="add-to-already-wached"
+                  onClick={() => addAlreadyWached(movie)}
+                >
+                  <TbEyeCheck />
                 </button>
               </span>
             </div>
