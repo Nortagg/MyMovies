@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./home.content.component.styles.scss";
 import SelectedCard from "./selected.card.component";
-import { AiFillStar } from "react-icons/ai";
+import { AiFillStar, AiOutlineArrowRight } from "react-icons/ai";
 import { TbHeartPlus, TbEyeCheck } from "react-icons/tb";
 import { PiClockClockwiseFill } from "react-icons/pi";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
@@ -12,8 +12,9 @@ import { userSelector } from "../../redux/userSlice";
 const Content = ({ movieData }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [note, setNote] = useState("");
+  const [info, setInfo] = useState(false);
 
-  const { uid } = useSelector(userSelector);
+  const { uid, isLoggedIn } = useSelector(userSelector);
 
   const handleMovieClick = (movie) => {
     if (selectedMovie === movie) {
@@ -21,6 +22,9 @@ const Content = ({ movieData }) => {
     } else {
       setSelectedMovie(movie);
     }
+  };
+  const handleInfoMessage = () => {
+    setInfo(true);
   };
 
   const addFavoriteMovie = async (movie) => {
@@ -146,26 +150,49 @@ const Content = ({ movieData }) => {
                   <p className="error-info">No rank data</p>
                 )}
               </div>
-              <span className="buttons-favorites-watchLatter">
-                <button
-                  className="add-to-favorites-button"
-                  onClick={() => addFavoriteMovie(movie)}
-                >
-                  <TbHeartPlus />
-                </button>
-                <button
-                  className="add-to-watch-later-button"
-                  onClick={() => addWatchLater(movie)}
-                >
-                  <PiClockClockwiseFill />
-                </button>{" "}
-                <button
-                  className="add-to-already-wached"
-                  onClick={() => addAlreadyWached(movie)}
-                >
-                  <TbEyeCheck />
-                </button>
-              </span>
+              {isLoggedIn ? (
+                <span className="buttons-favorites-watchLatter">
+                  <button
+                    className="add-to-favorites-button"
+                    onClick={() => addFavoriteMovie(movie)}
+                  >
+                    <TbHeartPlus />
+                  </button>
+                  <button
+                    className="add-to-watch-later-button"
+                    onClick={() => addWatchLater(movie)}
+                  >
+                    <PiClockClockwiseFill />
+                  </button>{" "}
+                  <button
+                    className="add-to-already-wached"
+                    onClick={() => addAlreadyWached(movie)}
+                  >
+                    <TbEyeCheck />
+                  </button>
+                </span>
+              ) : (
+                <span className="buttons-favorites-watchLatter">
+                  <button
+                    className="button-not-logged-in"
+                    onClick={handleInfoMessage}
+                  >
+                    <TbHeartPlus />
+                  </button>
+                  <button
+                    className="button-not-logged-in"
+                    onClick={handleInfoMessage}
+                  >
+                    <PiClockClockwiseFill />
+                  </button>{" "}
+                  <button
+                    className="button-not-logged-in"
+                    onClick={handleInfoMessage}
+                  >
+                    <TbEyeCheck />
+                  </button>
+                </span>
+              )}
             </div>
           </div>
         ))}
@@ -177,6 +204,14 @@ const Content = ({ movieData }) => {
         </div>
       )}
       <p className="movie-added-exists-note">{note}</p>
+      {info && (
+        <div className="info-message">
+          Login to get access{" "}
+          <span className="arrow-right-icon">
+            <AiOutlineArrowRight />
+          </span>
+        </div>
+      )}
     </div>
   );
 };
