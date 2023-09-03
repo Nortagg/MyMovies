@@ -18,16 +18,19 @@ const Login = () => {
   const [incorrectPassword, setIncorrectPassword] = useState(false);
   const [incorrectEmail, setIncorrectEmail] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState("password");
+  const [placeholderVisible, setPlaceholderVisible] = useState("*********");
 
   const navigateHome = useNavigate();
   const dispatch = useDispatch();
 
   const togglePassword = () => {
-    if (passwordVisible === "password") {
+    if ((passwordVisible === "password", placeholderVisible === "*********")) {
       setPasswordVisible("text");
-      return;
+      setPlaceholderVisible("");
+    } else {
+      setPasswordVisible("password");
+      setPlaceholderVisible("*********");
     }
-    setPasswordVisible("password");
   };
 
   const handleSubmit = (event) => {
@@ -104,7 +107,7 @@ const Login = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             type={passwordVisible}
-            placeholder="**********"
+            placeholder={placeholderVisible}
             name="password"
           />
           <button className="eye-button" type="button" onClick={togglePassword}>

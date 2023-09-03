@@ -15,15 +15,18 @@ const Register = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [passwordVisible, setPasswordVisible] = useState("password");
+  const [placeholderVisible, setPlaceholderVisible] = useState("*********");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const togglePassword = () => {
-    if (passwordVisible === "password") {
+    if ((passwordVisible === "password", placeholderVisible === "*********")) {
       setPasswordVisible("text");
-      return;
+      setPlaceholderVisible("");
+    } else {
+      setPasswordVisible("password");
+      setPlaceholderVisible("*********");
     }
-    setPasswordVisible("password");
   };
 
   const navigateLogin = useNavigate();
@@ -99,7 +102,7 @@ const Register = () => {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             type={passwordVisible}
-            placeholder="**********"
+            placeholder={placeholderVisible}
             name="password"
           />
           <button
@@ -118,13 +121,14 @@ const Register = () => {
             )}
           </button>
         </div>
+        {passwordError && <div className="error-message">{passwordError}</div>}
         <label>confirm password</label>
         <div className="input-password-container-register">
           <input
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
             type={passwordVisible}
-            placeholder="**********"
+            placeholder={placeholderVisible}
             name="confirmPassword"
           />{" "}
           <button
@@ -146,7 +150,7 @@ const Register = () => {
         {confirmPasswordError && (
           <div className="error-message">{confirmPasswordError}</div>
         )}
-        {passwordError && <div className="error-message">{passwordError}</div>}
+
         <button className="register-submit" type="submit">
           Register
         </button>
