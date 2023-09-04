@@ -1,5 +1,5 @@
 import "./header.component.styles.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +11,10 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
   const dispatch = useDispatch();
   const navigateHome = useNavigate();
-
   const { isLoggedIn } = useSelector(userSelector);
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const logOutOfApp = () => {
     dispatch(resetUser());
@@ -37,20 +39,23 @@ const HeaderPart = ({ inputValue, handleChange }) => {
         <span className="break">/</span>
         <p className="tvS">TvSeries</p>
       </Link>
-      <div className="input-icon">
-        <input
-          className="input-bar"
-          type="text"
-          placeholder="Search here"
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          value={inputValue}
-        />
+      {isHomePage && (
+        <div className="input-icon">
+          <input
+            className="input-bar"
+            type="text"
+            placeholder="Search here"
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            value={inputValue}
+          />
 
-        <span className="search-icon">
-          <BsSearch />
-        </span>
-      </div>
+          <span className="search-icon">
+            <BsSearch />
+          </span>
+        </div>
+      )}
+
       {errorMessage && <p className="error">{errorMessage}</p>}
 
       {isLoggedIn ? (

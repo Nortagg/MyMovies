@@ -23,6 +23,7 @@ const Content = ({ movieData }) => {
       setSelectedMovie(movie);
     }
   };
+
   const handleInfoMessage = () => {
     setInfo(true);
   };
