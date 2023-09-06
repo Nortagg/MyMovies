@@ -78,7 +78,12 @@ export const AlreadyWached = () => {
             <div className="title-url-button-already-wached">
               <h2 className="already-wached-title">{movie.title}</h2>
               <span className="span-url-button-already-wached">
-                <a className="already-wached-url" href={movie.url}>
+                <a
+                  className="already-wached-url"
+                  href={movie.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Revisit movie
                 </a>
                 <button

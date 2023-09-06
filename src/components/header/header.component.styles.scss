@@ -29,6 +29,14 @@
       transition: 500ms;
       color: goldenrod;
     }
+    .home-hover {
+      display: flex;
+      opacity: 0;
+      text-decoration: none;
+      color: gray;
+      margin-left: 1.3rem;
+      font-size: 14px;
+    }
   }
 
   .home-link:hover {
@@ -37,6 +45,10 @@
     }
     .tvS {
       color: rgb(255, 255, 255);
+    }
+    .home-hover {
+      opacity: 1;
+      transition: 500ms;
     }
   }
   .input-icon {
@@ -93,8 +105,8 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
-    top: -10px;
-    left: 58%;
+    bottom: -9px;
+    left: 58.8%;
     color: goldenrod;
     font-weight: bold;
     background: linear-gradient(
@@ -123,10 +135,16 @@
   .favorites-log-out-container {
     position: absolute;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     width: 300px;
-    right: 0.5rem;
+    right: 0rem;
+
+    .header-line {
+      border-right: 1px solid rgba(128, 128, 128, 0.4);
+      margin-top: 2px;
+      height: 17px;
+    }
 
     .log-out-header-button {
       display: flex;
@@ -139,9 +157,16 @@
       font-weight: bold;
       font-family: "Inter", sans-serif;
       padding: 0;
+      cursor: pointer;
       &:hover {
-        border-radius: inherit;
-        border-bottom: 2px solid goldenrod;
+        color: rgb(252, 200, 69);
+      }
+      .log-out-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 6px;
+        font-size: 17px;
       }
     }
     .watch-later-link {
@@ -181,12 +206,10 @@
     font-size: 16px;
     font-weight: bold;
     color: white;
-    width: 80px;
-    height: 25px;
     right: 1rem;
+    cursor: pointer;
     &:hover {
-      border-radius: inherit;
-      border-bottom: 2px solid goldenrod;
+      color: rgb(252, 200, 69);
     }
   }
 }

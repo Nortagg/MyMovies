@@ -63,7 +63,7 @@ export const WatchLatter = () => {
     <div className="wached-watch-later-container">
       <div className="watch-later-container">
         {watchLaterMovies.length > 0 ? (
-          <h1 className="watch-later-list-title">Watch later list:</h1>
+          <h1 className="watch-later-list-title">Watch later:</h1>
         ) : (
           <p className="note-false-watch-later">
             Your "Watch Later" is folder empty.
@@ -80,7 +80,12 @@ export const WatchLatter = () => {
               <div className="title-url-button-wrap">
                 <h2 className="watch-later-title">{movie.title}</h2>
                 <span className="span-url-button">
-                  <a className="watch-later-url" href={movie.url}>
+                  <a
+                    className="watch-later-url"
+                    href={movie.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Watch Trailer
                   </a>
                   <button

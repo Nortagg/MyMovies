@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { resetUser, userSelector } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
 
 const HeaderPart = ({ inputValue, handleChange }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -38,6 +39,7 @@ const HeaderPart = ({ inputValue, handleChange }) => {
         <p className="movies-title">Movies</p>
         <span className="break">/</span>
         <p className="tvS">TvSeries</p>
+        <p className="home-hover">Home</p>
       </Link>
       {isHomePage && (
         <div className="input-icon">
@@ -63,10 +65,15 @@ const HeaderPart = ({ inputValue, handleChange }) => {
           <Link className="watch-later-link" to="/watch-latter">
             Watch
           </Link>
+          <span className="header-line"></span>
           <Link className="favorites-link" to="/favorites">
             Favorites
           </Link>
+          <span className="header-line"></span>
           <button className="log-out-header-button" onClick={logOutOfApp}>
+            <span className="log-out-icon">
+              <FiLogOut />
+            </span>
             Log Out
           </button>
         </div>

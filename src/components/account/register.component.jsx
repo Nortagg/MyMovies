@@ -29,7 +29,7 @@ const Register = () => {
     }
   };
 
-  const navigateLogin = useNavigate();
+  const navigateHome = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
@@ -65,8 +65,8 @@ const Register = () => {
           })
         );
         setTimeout(() => {
-          navigateLogin("/Login");
-        }, 2000);
+          navigateHome("/");
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);

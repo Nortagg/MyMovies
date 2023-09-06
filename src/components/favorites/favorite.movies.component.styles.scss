@@ -8,8 +8,8 @@
     margin: 0;
     width: 100%;
     color: goldenrod;
-    text-shadow: 0px 2px 3px black;
-    font-size: 24px;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.8);
+    font-size: 22px;
   }
   .false-container {
     display: flex;
@@ -44,7 +44,7 @@
   .movies-grid-favorites {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
+    gap: 20px;
     overflow-y: scroll;
     height: 800px;
     width: 100%;
@@ -62,14 +62,15 @@
       background-color: rgb(29, 26, 38);
       box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
       width: 16rem;
-      height: 26rem;
-      border-radius: 0.4rem;
+      height: 28rem;
+      border-radius: 0.5rem;
 
       .movie-img-favorites {
-        border-radius: 0.4rem 0.4rem 0 0;
-        width: 100%;
-        height: 20rem;
-        object-fit: cover;
+        border-radius: 0.3rem 0.3rem 0 0;
+        width: 15.4rem;
+        height: 22rem;
+        object-fit: fill;
+        margin-top: 5px;
         object-position: top;
       }
 
@@ -79,11 +80,11 @@
         width: 100%;
         height: 6rem;
         .movie-title-favorites {
-          margin-top: 0.5rem;
-          margin-bottom: 0.5rem;
-          margin-left: 1rem;
+          margin-top: 0.6rem;
+          margin-bottom: 1rem;
+          margin-left: 0.6rem;
           text-wrap: balance;
-          font-size: 16px;
+          font-size: 15px;
         }
         .trailer-remove-button {
           display: flex;
@@ -93,7 +94,7 @@
           margin: auto;
           .link-to-movie {
             text-decoration: none;
-            font-size: 16px;
+            font-size: 15px;
             color: rgb(252, 40, 40);
             margin: 0;
             padding: 5px 10px;
@@ -107,7 +108,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 25px;
+            font-size: 24px;
             color: rgb(252, 40, 40, 0.7);
             background-color: transparent;
             border: none;
