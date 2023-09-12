@@ -14,6 +14,14 @@ const WelcomeCard = () => {
       <div className="blur"></div>
       <div className="background-cards">
         <div className="card-1"></div>
+        <div className="handle-1">
+          <span className="line-handle"></span>
+          <span className="line-handle"></span>
+          <span className="sword-button"></span>
+          <span className="line-handle"></span>
+          <span className="line-handle"></span>
+        </div>
+        <div className="blade-1"></div>
         <div className="card-2"></div>
         <div className="card-3"></div>
         <div className="card-4"></div>

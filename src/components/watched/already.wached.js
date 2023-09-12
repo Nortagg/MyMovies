@@ -6,6 +6,7 @@ import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { TbEyeX } from "react-icons/tb";
 import { TbEyeCheck } from "react-icons/tb";
+import { BsLink45Deg } from "react-icons/bs";
 
 export const AlreadyWached = () => {
   const [alreadyWachedMovies, setAlreadyWachedMovies] = useState([]);
@@ -74,25 +75,29 @@ export const AlreadyWached = () => {
       <div className="already-wached-list">
         {alreadyWachedMovies.map((movie, index) => (
           <div className="already-wached-card" key={index}>
-            <img className="already-wached-poster" src={movie.poster} alt="" />
+            <div className="poster-url">
+              <img
+                className="already-wached-poster"
+                src={movie.poster}
+                alt=""
+              />
+              <a
+                className="already-wached-url"
+                href={movie.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <BsLink45Deg />
+              </a>
+            </div>
             <div className="title-url-button-already-wached">
               <h2 className="already-wached-title">{movie.title}</h2>
-              <span className="span-url-button-already-wached">
-                <a
-                  className="already-wached-url"
-                  href={movie.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Revisit movie
-                </a>
-                <button
-                  className="remove-button-already-wached"
-                  onClick={() => deleteAlreadyWached(movie)}
-                >
-                  <TbEyeX />
-                </button>
-              </span>
+              <button
+                className="remove-button-already-wached"
+                onClick={() => deleteAlreadyWached(movie)}
+              >
+                <TbEyeX />
+              </button>
             </div>
           </div>
         ))}
