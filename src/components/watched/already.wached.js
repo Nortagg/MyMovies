@@ -7,9 +7,12 @@ import { db } from "../../firebase";
 import { TbEyeX } from "react-icons/tb";
 import { TbEyeCheck } from "react-icons/tb";
 import { BsLink45Deg } from "react-icons/bs";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 export const AlreadyWached = () => {
   const [alreadyWachedMovies, setAlreadyWachedMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
 
   const user = useSelector(userSelector);
 
@@ -59,10 +62,34 @@ export const AlreadyWached = () => {
     }
   };
 
+  const getCurrentWachedItems = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return alreadyWachedMovies.slice(startIndex, endIndex);
+  };
+
   return (
     <div className="already-wached-title-container">
       {alreadyWachedMovies.length > 0 ? (
-        <h1 className="already-wached-list-title">Already wached:</h1>
+        <>
+          <h1 className="already-wached-list-title">Already wached:</h1>{" "}
+          <div className="pagination">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              <MdArrowBackIos />
+            </button>
+            <button
+              disabled={
+                currentPage * itemsPerPage >= alreadyWachedMovies.length
+              }
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              <MdArrowForwardIos />
+            </button>
+          </div>
+        </>
       ) : (
         <p className="note-false-already-wached">
           Your "Already Wached" folder is empty.
@@ -74,7 +101,7 @@ export const AlreadyWached = () => {
       )}
       <div className="already-wached-container">
         <div className="already-wached-list">
-          {alreadyWachedMovies.map((movie, index) => (
+          {getCurrentWachedItems().map((movie, index) => (
             <div className="already-wached-card" key={index}>
               <div className="poster-url">
                 <img

@@ -7,9 +7,12 @@ import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { TbClockMinus } from "react-icons/tb";
 import { PiClockClockwiseFill } from "react-icons/pi";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 export const WatchLatter = () => {
   const [watchLaterMovies, setWatchLaterMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 7;
 
   const user = useSelector(userSelector);
 
@@ -59,10 +62,32 @@ export const WatchLatter = () => {
     }
   };
 
+  const getCurrentPageItems = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return watchLaterMovies.slice(startIndex, endIndex);
+  };
+
   return (
     <div className="wached-watch-later-container">
       {watchLaterMovies.length > 0 ? (
-        <h1 className="watch-later-list-title">Watch later:</h1>
+        <>
+          <h1 className="watch-later-list-title">Watch later:</h1>
+          <div className="pagination">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(currentPage - 1)}
+            >
+              <MdArrowBackIos />
+            </button>
+            <button
+              disabled={currentPage * itemsPerPage >= watchLaterMovies.length}
+              onClick={() => setCurrentPage(currentPage + 1)}
+            >
+              <MdArrowForwardIos />
+            </button>
+          </div>
+        </>
       ) : (
         <p className="note-false-watch-later">
           Your "Watch Later" is folder empty.
@@ -74,7 +99,7 @@ export const WatchLatter = () => {
       )}
       <div className="watch-later-container">
         <div className="movies-list">
-          {watchLaterMovies.map((movie, index) => (
+          {getCurrentPageItems().map((movie, index) => (
             <div className="watch-list-card" key={index}>
               <img className="watch-later-poster" src={movie.poster} alt="" />
               <div className="title-url-button-wrap">
