@@ -1,9 +1,6 @@
-import { useSelector } from "react-redux";
 import "./welcome.card.styles.scss";
-import { userSelector } from "../../redux/userSlice";
 
 const WelcomeCard = () => {
-  const { email } = useSelector(userSelector);
   return (
     <>
       <div className="welcome-card">
@@ -32,16 +29,6 @@ const WelcomeCard = () => {
         <div className="card-9"></div>
         <div className="card-10"></div>
       </div>
-      {email ? (
-        <div className="popUp">
-          <p className="popUp-text">
-            Welcome back <br /> <span className="email-popup">{email}</span>
-          </p>
-          <span className="popUp-progress"></span>
-        </div>
-      ) : (
-        ""
-      )}
     </>
   );
 };

@@ -195,6 +195,56 @@
         border-bottom: 2px solid goldenrod;
       }
     }
+    .popUp {
+      position: absolute;
+      right: 20rem;
+      margin-bottom: 7px;
+      opacity: 0;
+      visibility: hidden;
+      animation: fade-in 5s linear forwards;
+    }
+    .popUp-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #f6f5f9;
+      font-size: 16px;
+      margin: 0;
+      .email-popup {
+        color: goldenrod;
+        margin: 0;
+      }
+    }
+    .popUp-progress {
+      position: absolute;
+      bottom: -5px;
+      left: 2.5px;
+      width: calc(100% - 5px);
+      height: 2px;
+      transform: scale(0);
+      transform-origin: left;
+      background-image: linear-gradient(to right, #00dbde, #fc00ff);
+      border-radius: inherit;
+      animation: load 4s 0.25s linear forwards;
+    }
+    @keyframes fade-in {
+      5% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      90% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes load {
+      to {
+        transform: scale(1);
+      }
+    }
   }
 
   .Login-link {

@@ -10,6 +10,8 @@ import { FiLogOut } from "react-icons/fi";
 const HeaderPart = ({ inputValue, handleChange }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
+  const { email } = useSelector(userSelector);
+
   const dispatch = useDispatch();
   const navigateHome = useNavigate();
   const { isLoggedIn } = useSelector(userSelector);
@@ -62,6 +64,13 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
       {isLoggedIn ? (
         <div className="favorites-log-out-container">
+          <div className="popUp">
+            <p className="popUp-text">
+              Welcome
+              <br /> <p className="email-popup">{email}</p>
+            </p>
+            <span className="popUp-progress"></span>
+          </div>
           <Link className="watch-later-link" to="/watch-latter">
             Watch
           </Link>

@@ -60,7 +60,7 @@ export const AlreadyWached = () => {
   };
 
   return (
-    <div className="already-wached-container">
+    <div className="already-wached-title-container">
       {alreadyWachedMovies.length > 0 ? (
         <h1 className="already-wached-list-title">Already wached:</h1>
       ) : (
@@ -72,35 +72,37 @@ export const AlreadyWached = () => {
           </span>
         </p>
       )}
-      <div className="already-wached-list">
-        {alreadyWachedMovies.map((movie, index) => (
-          <div className="already-wached-card" key={index}>
-            <div className="poster-url">
-              <img
-                className="already-wached-poster"
-                src={movie.poster}
-                alt=""
-              />
-              <a
-                className="already-wached-url"
-                href={movie.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <BsLink45Deg />
-              </a>
+      <div className="already-wached-container">
+        <div className="already-wached-list">
+          {alreadyWachedMovies.map((movie, index) => (
+            <div className="already-wached-card" key={index}>
+              <div className="poster-url">
+                <img
+                  className="already-wached-poster"
+                  src={movie.poster}
+                  alt=""
+                />
+                <a
+                  className="already-wached-url"
+                  href={movie.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsLink45Deg />
+                </a>
+              </div>
+              <div className="title-url-button-already-wached">
+                <h2 className="already-wached-title">{movie.title}</h2>
+                <button
+                  className="remove-button-already-wached"
+                  onClick={() => deleteAlreadyWached(movie)}
+                >
+                  <TbEyeX />
+                </button>
+              </div>
             </div>
-            <div className="title-url-button-already-wached">
-              <h2 className="already-wached-title">{movie.title}</h2>
-              <button
-                className="remove-button-already-wached"
-                onClick={() => deleteAlreadyWached(movie)}
-              >
-                <TbEyeX />
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

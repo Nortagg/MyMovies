@@ -61,18 +61,18 @@ export const WatchLatter = () => {
 
   return (
     <div className="wached-watch-later-container">
+      {watchLaterMovies.length > 0 ? (
+        <h1 className="watch-later-list-title">Watch later:</h1>
+      ) : (
+        <p className="note-false-watch-later">
+          Your "Watch Later" is folder empty.
+          <br /> You can add Movies/TvSeries by pressing
+          <span className="icon-false-watch-later">
+            <PiClockClockwiseFill />
+          </span>
+        </p>
+      )}
       <div className="watch-later-container">
-        {watchLaterMovies.length > 0 ? (
-          <h1 className="watch-later-list-title">Watch later:</h1>
-        ) : (
-          <p className="note-false-watch-later">
-            Your "Watch Later" is folder empty.
-            <br /> You can add Movies/TvSeries by pressing
-            <span className="icon-false-watch-later">
-              <PiClockClockwiseFill />
-            </span>
-          </p>
-        )}
         <div className="movies-list">
           {watchLaterMovies.map((movie, index) => (
             <div className="watch-list-card" key={index}>
