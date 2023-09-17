@@ -12,8 +12,8 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 export const WatchLatter = () => {
   const [watchLaterMovies, setWatchLaterMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
 
+  const itemsPerPage = 7;
   const user = useSelector(userSelector);
 
   useEffect(() => {
@@ -72,21 +72,27 @@ export const WatchLatter = () => {
     <div className="wached-watch-later-container">
       {watchLaterMovies.length > 0 ? (
         <>
-          <h1 className="watch-later-list-title">Watch later:</h1>
-          <div className="pagination">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              <MdArrowBackIos />
-            </button>
-            <button
-              disabled={currentPage * itemsPerPage >= watchLaterMovies.length}
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              <MdArrowForwardIos />
-            </button>
-          </div>
+          <h1 className="watch-later-list-title">Watch Later:</h1>
+          {watchLaterMovies.length > 7 ? (
+            <div className="pagination">
+              <button
+                className="back-button"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                <MdArrowBackIos />
+              </button>
+              <button
+                className="next-button"
+                disabled={currentPage * itemsPerPage >= watchLaterMovies.length}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                <MdArrowForwardIos />
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </>
       ) : (
         <p className="note-false-watch-later">

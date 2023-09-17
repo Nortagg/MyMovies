@@ -12,8 +12,8 @@ import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 export const AlreadyWached = () => {
   const [alreadyWachedMovies, setAlreadyWachedMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
 
+  const itemsPerPage = 7;
   const user = useSelector(userSelector);
 
   useEffect(() => {
@@ -72,23 +72,29 @@ export const AlreadyWached = () => {
     <div className="already-wached-title-container">
       {alreadyWachedMovies.length > 0 ? (
         <>
-          <h1 className="already-wached-list-title">Already wached:</h1>{" "}
-          <div className="pagination">
-            <button
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(currentPage - 1)}
-            >
-              <MdArrowBackIos />
-            </button>
-            <button
-              disabled={
-                currentPage * itemsPerPage >= alreadyWachedMovies.length
-              }
-              onClick={() => setCurrentPage(currentPage + 1)}
-            >
-              <MdArrowForwardIos />
-            </button>
-          </div>
+          <h1 className="already-wached-list-title">Already Wached:</h1>{" "}
+          {alreadyWachedMovies.length > 7 ? (
+            <div className="pagination">
+              <button
+                className="back-button"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                <MdArrowBackIos />
+              </button>
+              <button
+                className="next-button"
+                disabled={
+                  currentPage * itemsPerPage >= alreadyWachedMovies.length
+                }
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                <MdArrowForwardIos />
+              </button>
+            </div>
+          ) : (
+            ""
+          )}
         </>
       ) : (
         <p className="note-false-already-wached">
@@ -103,21 +109,22 @@ export const AlreadyWached = () => {
         <div className="already-wached-list">
           {getCurrentWachedItems().map((movie, index) => (
             <div className="already-wached-card" key={index}>
-              <div className="poster-url">
+              <a
+                className="poster-url-icon-container"
+                href={movie.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   className="already-wached-poster"
                   src={movie.poster}
                   alt=""
                 />
-                <a
-                  className="already-wached-url"
-                  href={movie.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <span className="link-icon-url">
                   <BsLink45Deg />
-                </a>
-              </div>
+                </span>
+              </a>
+
               <div className="title-url-button-already-wached">
                 <h2 className="already-wached-title">{movie.title}</h2>
                 <button
