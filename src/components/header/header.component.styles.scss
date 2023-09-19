@@ -169,7 +169,8 @@
         font-size: 17px;
       }
     }
-    .watch-later-link {
+    .watch-link {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -178,11 +179,12 @@
       font-size: 16px;
       font-weight: bold;
       &:hover {
-        border-radius: inherit;
         border-bottom: 2px solid goldenrod;
+        top: 1px;
       }
     }
     .favorites-link {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -191,8 +193,8 @@
       font-size: 16px;
       font-weight: bold;
       &:hover {
-        border-radius: inherit;
         border-bottom: 2px solid goldenrod;
+        top: 1px;
       }
     }
     .popUp {

@@ -17,11 +17,11 @@
       rgba(85, 1, 85, 0.5) 40%,
       rgb(0, 0, 0) 100%
     );
-    box-shadow: 0px 2px 5px -1px rgb(0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     border-radius: 2rem;
     z-index: 1;
     .register-title {
-      font-size: 40px;
+      font-size: 38px;
       margin: 3rem 0;
     }
     label {
@@ -102,7 +102,7 @@
     }
     .link-home {
       position: absolute;
-      top: 10rem;
+      top: 8.4rem;
       display: flex;
       justify-content: center;
       align-items: center;

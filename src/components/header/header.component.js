@@ -71,7 +71,7 @@ const HeaderPart = ({ inputValue, handleChange }) => {
             </p>
             <span className="popUp-progress"></span>
           </div>
-          <Link className="watch-later-link" to="/watch-latter">
+          <Link className="watch-link" to="/watch-latter">
             Watch
           </Link>
           <span className="header-line"></span>

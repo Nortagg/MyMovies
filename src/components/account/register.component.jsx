@@ -86,7 +86,7 @@ const Register = () => {
             <IoMdArrowBack />
           </span>
         </Link>
-        <h1 className="register-title">Register</h1>
+        <h1 className="register-title">Register here</h1>
         <label>email</label>
         <input
           value={email}

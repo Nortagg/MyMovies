@@ -33,7 +33,7 @@ const AuthDetails = ({ handleSubmit }) => {
             <BsFillPersonDashFill />
             <p className="logged-out-text">Logged Out</p>
           </span>
-          <button type="button" className="login-submit" onClick={handleSubmit}>
+          <button type="submit" className="login-submit" onClick={handleSubmit}>
             Log In
           </button>
         </div>

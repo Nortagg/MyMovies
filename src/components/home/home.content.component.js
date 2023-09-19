@@ -47,7 +47,14 @@ const Content = ({ movieData }) => {
           url: movie["#IMDB_URL"],
           uid: uid,
         });
-        setNote("Added to favorites!");
+        setNote(
+          <div>
+            Added to favorites!
+            <span className="icon-note-favorites">
+              <TbHeartPlus />
+            </span>
+          </div>
+        );
       } else {
         setNote("Movie already added!");
       }
@@ -77,7 +84,14 @@ const Content = ({ movieData }) => {
           url: movie["#IMDB_URL"],
           uid: uid,
         });
-        setNote("Added to Watch Later!");
+        setNote(
+          <div>
+            Added to Watch Later!
+            <span className="icon-note-watch-later">
+              <PiClockClockwiseFill />
+            </span>
+          </div>
+        );
       } else {
         setNote("Already added to Watch Latter!");
       }
@@ -107,7 +121,14 @@ const Content = ({ movieData }) => {
           url: movie["#IMDB_URL"],
           uid: uid,
         });
-        setNote("Added to Already Wached!");
+        setNote(
+          <div>
+            Added to Already Wached!
+            <span className="icon-note-already-wached">
+              <TbEyeCheck />
+            </span>
+          </div>
+        );
       } else {
         setNote("This item already exists!");
       }
@@ -204,7 +225,10 @@ const Content = ({ movieData }) => {
           <SelectedCard selectedMovie={selectedMovie} />
         </div>
       )}
-      <p className="movie-added-exists-note">{note}</p>
+      <p className="movie-added-exists-note">
+        {note}
+        <br />
+      </p>
       {info && (
         <div className="info-message">
           Login to get access{" "}
