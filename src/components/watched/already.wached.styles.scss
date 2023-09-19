@@ -7,8 +7,9 @@
 
   .already-wached-list-title {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: left;
+    width: 111.8rem;
+    letter-spacing: 3px;
     margin-top: 0px;
     margin-bottom: 5px;
     color: rgba(218, 165, 32, 0.8);
@@ -29,6 +30,7 @@
       cursor: default;
     }
     button {
+      padding: 0;
       border: none;
       display: flex;
       align-items: center;

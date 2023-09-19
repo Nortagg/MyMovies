@@ -6,9 +6,13 @@ import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../redux/userSlice";
+import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 const FavoriteMovies = () => {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const itemsPerPage = 14;
 
   const user = useSelector(userSelector);
 
@@ -59,10 +63,16 @@ const FavoriteMovies = () => {
     }
   };
 
+  const getCurrentFavoriteItems = () => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return favoriteMovies.slice(startIndex, endIndex);
+  };
+
   return (
     <div className="favorites-container">
       {favoriteMovies.length > 0 ? (
-        <h1 className="favorites-title">Your favorite movies:</h1>
+        <h1 className="favorites-title">Your Favorite Movies:</h1>
       ) : (
         <div className="false-container">
           <h1 className="favorites-title-false">
@@ -79,9 +89,28 @@ const FavoriteMovies = () => {
           />
         </div>
       )}
-
+      {favoriteMovies.length > 14 ? (
+        <div className="pagination">
+          <button
+            className="back-button"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            <MdArrowBackIos />
+          </button>
+          <button
+            className="next-button"
+            disabled={currentPage * itemsPerPage >= favoriteMovies.length}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            <MdArrowForwardIos />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
       <div className="movies-grid-favorites">
-        {favoriteMovies.map((movie, index) => (
+        {getCurrentFavoriteItems().map((movie, index) => (
           <div className="grid-movie-item-favorites" key={index}>
             {movie.poster ? (
               <img className="movie-img-favorites" src={movie.poster} alt="" />

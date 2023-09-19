@@ -6,7 +6,8 @@
 
   .favorites-title {
     margin-top: 3rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
     width: 100%;
     color: goldenrod;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.8);
@@ -41,18 +42,43 @@
       box-shadow: 0px 2px 15px black;
     }
   }
+  .pagination {
+    position: absolute;
+    top: 32rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1760px;
+    .next-button:disabled,
+    .back-button:disabled {
+      color: rgba(121, 118, 118, 0.4);
+      cursor: default;
+    }
+    button {
+      border: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      background-color: transparent;
+      color: rgba(218, 165, 32, 0.7);
+      cursor: pointer;
+      font-size: 40px;
+      &:hover {
+        color: goldenrod;
+      }
+    }
+  }
 
   .movies-grid-favorites {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 20px;
-    overflow-y: scroll;
-    height: 840px;
+    gap: 25px;
+    height: 865px;
     width: 100%;
-    padding: 1rem;
-    &::-webkit-scrollbar {
-      display: none;
-    }
 
     .grid-movie-item-favorites {
       position: relative;
@@ -60,18 +86,20 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      background-color: rgb(29, 26, 38);
-      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-      width: 15rem;
-      height: 28rem;
+      background-color: rgb(33, 29, 46);
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 25px 20px -20px,
+        rgba(0, 0, 0, 0.5) 0px -25px 20px -30px;
+
+      width: 14rem;
+      height: 26rem;
       border-radius: 0.5rem;
 
       .movie-img-favorites {
         border-radius: 0.3rem 0.3rem 0 0;
-        width: 14.4rem;
-        height: 22rem;
+        width: 13.5rem;
+        height: 20rem;
         object-fit: fill;
-        margin-top: 5px;
+        margin-top: 4px;
         object-position: top;
       }
 
