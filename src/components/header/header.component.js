@@ -88,7 +88,7 @@ const HeaderPart = ({ inputValue, handleChange }) => {
         </div>
       ) : (
         <Link className="Login-link" to="/Login">
-          Login
+          Login / Register
         </Link>
       )}
     </div>

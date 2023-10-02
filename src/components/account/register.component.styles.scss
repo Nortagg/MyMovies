@@ -94,6 +94,8 @@
       font-weight: bold;
       font-size: 16px;
       margin-top: auto;
+      padding-bottom: 5px;
+      border-bottom: 1px solid rgb(155, 81, 155);
       transition: 0.3s;
       &:hover {
         color: rgb(255, 255, 255);

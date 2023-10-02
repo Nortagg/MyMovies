@@ -7,7 +7,7 @@ import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { TbClockMinus } from "react-icons/tb";
 import { PiClockClockwiseFill } from "react-icons/pi";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 export const WatchLatter = () => {
   const [watchLaterMovies, setWatchLaterMovies] = useState([]);
@@ -80,7 +80,7 @@ export const WatchLatter = () => {
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
               >
-                <MdArrowBackIos />
+                <MdArrowForwardIos />
               </button>
               <button
                 className="next-button"

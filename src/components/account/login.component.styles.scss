@@ -31,6 +31,7 @@
       color: rgb(212, 212, 212);
       padding: 5px;
       font-size: 16px;
+      margin-top: 0.5rem;
     }
     input {
       border: none;
@@ -40,7 +41,7 @@
       padding: 6px 5px;
       width: 260px;
       height: 20px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.8rem;
       color: white;
     }
     input::placeholder {
@@ -58,6 +59,9 @@
     }
     .input-password-container {
       position: relative;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
       .eye-button {
         position: absolute;
         display: flex;
@@ -71,14 +75,28 @@
         color: white;
       }
     }
+    .link-to-password-reset {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: 0.3s;
+      margin-left: 1px;
+      &:hover {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+      }
+    }
 
     .link-to-register {
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.7);
       font-weight: bold;
-      font-size: 16px;
-      margin-top: auto;
+      font-size: 15px;
+      margin-top: 1.5rem;
       transition: 0.3s;
+      padding-bottom: 3px;
+      border-bottom: 1px solid rgb(155, 81, 155);
       &:hover {
         color: rgb(255, 255, 255);
         font-weight: bolder;

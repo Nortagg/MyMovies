@@ -122,6 +122,9 @@ const Login = () => {
               </span>
             )}
           </button>
+          <Link className="link-to-password-reset" to="/password-reset">
+            Forgot your password?
+          </Link>
         </div>
         {incorrectPassword && (
           <div className="error-message">

@@ -7,7 +7,7 @@ import { db } from "../../firebase";
 import { TbEyeX } from "react-icons/tb";
 import { TbEyeCheck } from "react-icons/tb";
 import { BsLink45Deg } from "react-icons/bs";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 export const AlreadyWached = () => {
   const [alreadyWachedMovies, setAlreadyWachedMovies] = useState([]);
@@ -80,7 +80,7 @@ export const AlreadyWached = () => {
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
               >
-                <MdArrowBackIos />
+                <MdArrowForwardIos />
               </button>
               <button
                 className="next-button"

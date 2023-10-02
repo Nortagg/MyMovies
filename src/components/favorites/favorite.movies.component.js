@@ -6,7 +6,7 @@ import { collection, deleteDoc, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useSelector } from "react-redux";
 import { userSelector } from "../../redux/userSlice";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { MdArrowForwardIos } from "react-icons/md";
 
 const FavoriteMovies = () => {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
@@ -96,7 +96,7 @@ const FavoriteMovies = () => {
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(currentPage - 1)}
           >
-            <MdArrowBackIos />
+            <MdArrowForwardIos />
           </button>
           <button
             className="next-button"

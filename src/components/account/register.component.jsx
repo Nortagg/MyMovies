@@ -16,6 +16,9 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const [passwordVisible, setPasswordVisible] = useState("password");
   const [placeholderVisible, setPlaceholderVisible] = useState("*********");
+  const [passwordVisibleTwo, setPasswordVisibleTwo] = useState("password");
+  const [placeholderVisibleTwo, setPlaceholderVisibleTwo] =
+    useState("*********");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
@@ -26,6 +29,17 @@ const Register = () => {
     } else {
       setPasswordVisible("password");
       setPlaceholderVisible("*********");
+    }
+  };
+  const togglePasswordTwo = () => {
+    if (
+      (passwordVisibleTwo === "password", placeholderVisibleTwo === "*********")
+    ) {
+      setPasswordVisibleTwo("text");
+      setPlaceholderVisibleTwo("");
+    } else {
+      setPasswordVisibleTwo("password");
+      setPlaceholderVisibleTwo("*********");
     }
   };
 
@@ -127,14 +141,14 @@ const Register = () => {
           <input
             value={confirmPassword}
             onChange={(event) => setConfirmPassword(event.target.value)}
-            type={passwordVisible}
-            placeholder={placeholderVisible}
+            type={passwordVisibleTwo}
+            placeholder={placeholderVisibleTwo}
             name="confirmPassword"
           />{" "}
           <button
             className="eye-button-register"
             type="button"
-            onClick={togglePassword}
+            onClick={togglePasswordTwo}
           >
             {passwordVisible === "password" ? (
               <span className="password-true">

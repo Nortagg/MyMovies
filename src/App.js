@@ -9,6 +9,7 @@ import Login from "./components/account/login.component";
 import HeaderPart from "./components/header/header.component";
 import Register from "./components/account/register.component";
 import FavoriteMovies from "./components/favorites/favorite.movies.component";
+import { PasswordReset } from "./components/account/password.reset.component";
 import { WatchLatter } from "./components/watched/watch.later";
 import { useDispatch } from "react-redux";
 import { resetUser, setUser } from "./redux/userSlice";
@@ -73,6 +74,7 @@ function App() {
         <Route path="/Register" element={<Register />}></Route>
         <Route path="/favorites" element={<FavoriteMovies />}></Route>
         <Route path="/watch-latter" element={<WatchLatter />}></Route>
+        <Route path="/password-reset" element={<PasswordReset />}></Route>
       </Routes>
     </div>
   );

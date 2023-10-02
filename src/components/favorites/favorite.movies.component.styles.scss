@@ -45,15 +45,16 @@
   .pagination {
     position: absolute;
     top: 32rem;
-    width: 100%;
+    width: 98%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 1760px;
     .next-button:disabled,
     .back-button:disabled {
-      color: rgba(121, 118, 118, 0.4);
+      color: rgba(121, 118, 118, 0);
       cursor: default;
+      box-shadow: none;
+      background-color: transparent;
     }
     button {
       border: none;
@@ -69,7 +70,13 @@
       font-size: 40px;
       &:hover {
         color: goldenrod;
+        border-radius: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.01);
+        box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.5);
       }
+    }
+    .back-button {
+      transform: rotate(180deg);
     }
   }
 
