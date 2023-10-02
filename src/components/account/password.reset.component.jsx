@@ -1,33 +1,36 @@
 import { useState } from "react";
 import "./password.reset.component.styles.scss";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useSelector } from "react-redux";
+import { userSelector } from "../../redux/userSlice";
 
 export const PasswordReset = () => {
-  const [email, setEmail] = useState("");
+  const [emailInput, setEmailInput] = useState("");
   const [note, setNote] = useState("");
   const [falseNote, setFalseNote] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
 
+  const { email } = useSelector(userSelector);
+
   const handlePassowrdReset = () => {
     const emailReset = getAuth();
-    sendPasswordResetEmail(emailReset, email)
+    sendPasswordResetEmail(emailReset, emailInput)
       .then(() => {
         setNote("Password reset email sent successfully to");
         setIsSuccess(true);
       })
-      .catch((error) => {
+      .catch(() => {
         if (!email) {
           setFalseNote("Bad request or email missing!");
         }
-        console.error("Error sending password reset email:", error.message);
         setIsSuccess(false);
       });
   };
 
-  // setTimeout(() => {
-  //   setIsSuccess();
-  //   setFalseNote();
-  // }, 5000);
+  setTimeout(() => {
+    setIsSuccess();
+    setFalseNote();
+  }, 5000);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -42,21 +45,21 @@ export const PasswordReset = () => {
           className="input-styles"
           type="email"
           placeholder="Enter email for password change"
-          value={email}
+          value={emailInput}
           name="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmailInput(e.target.value)}
         />
         <button
           type="button"
           className="button-to-handle-reset"
           onClick={handlePassowrdReset}
         >
-          Reset Password
+          Send Reset Email
         </button>
 
         {isSuccess && (
           <p className="note-message">
-            {note} <span className="span-email">{email}</span>
+            {note} <span className="span-email">{emailInput}</span>
           </p>
         )}
         <p className="false-note-message">{falseNote}</p>
