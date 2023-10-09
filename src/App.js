@@ -68,7 +68,14 @@ function App() {
         <Route
           exact
           path="/"
-          element={<HomePage movieData={movieData} loading={loading} />}
+          element={
+            <HomePage
+              inputValue={inputValue}
+              handleChange={handleChange}
+              movieData={movieData}
+              loading={loading}
+            />
+          }
         ></Route>
         <Route path="/Login" element={<Login />}></Route>
         <Route path="/Register" element={<Register />}></Route>

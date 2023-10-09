@@ -1,12 +1,36 @@
+import { useState } from "react";
 import "./welcome.card.styles.scss";
+import { BsSearch } from "react-icons/bs";
 
-const WelcomeCard = () => {
+const WelcomeCard = ({ inputValue, handleChange }) => {
+  const [toggleSearch, setToggleSearch] = useState(false);
+
+  const toggleInput = () => {
+    setToggleSearch(!toggleSearch);
+  };
+
   return (
     <>
       <div className="welcome-card">
-        <span className="welcome-txt">
-          Welcome! Kindly provide the name of a movie or TV series to begin.
-        </span>
+        {toggleSearch ? (
+          <div className="input-icon">
+            <input
+              className="input-bar"
+              type="text"
+              placeholder="Search here"
+              onChange={handleChange}
+              value={inputValue}
+            />
+            <span className="search-icon">
+              <BsSearch />
+            </span>
+          </div>
+        ) : (
+          <span className="welcome-txt">
+            Welcome! Kindly provide the name of a movie or TV series to begin.{" "}
+            <button className="toggle-button" onClick={toggleInput}></button>
+          </span>
+        )}
       </div>
       <div className="blur"></div>
       <div className="background-cards">
