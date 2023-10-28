@@ -152,7 +152,11 @@ const Content = ({ movieData }) => {
               {movie["#IMG_POSTER"] ? (
                 <img className="movie-img" src={movie["#IMG_POSTER"]} alt="" />
               ) : (
-                <p className="error-info-image">No image</p>
+                <img
+                  src="images/noimg.png"
+                  alt=""
+                  className="error-info-image"
+                />
               )}
             </div>
             <h1 className="movie-title">{movie["#TITLE"]}</h1>
@@ -160,7 +164,7 @@ const Content = ({ movieData }) => {
               {movie["#YEAR"] ? (
                 <p className="year-num">{movie["#YEAR"]}</p>
               ) : (
-                <p className="error-info">No year data</p>
+                <p className="error-info">No data</p>
               )}
               <div className="icon-rank">
                 <span className="star-svg">
@@ -169,7 +173,7 @@ const Content = ({ movieData }) => {
                 {movie["#RANK"] ? (
                   <p className="rank-num">{movie["#RANK"]}</p>
                 ) : (
-                  <p className="error-info">No rank data</p>
+                  <p className="error-info">No data</p>
                 )}
               </div>
               {isLoggedIn ? (

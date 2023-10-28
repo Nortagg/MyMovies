@@ -18,7 +18,7 @@ const SelectedCard = ({ selectedMovie }) => {
             alt=""
           />
         ) : (
-          <p>No image</p>
+          <img src="images/noimg.png" alt="" className="error-info-image" />
         )}
         <span className="link-to-movie">
           <BsLink45Deg />

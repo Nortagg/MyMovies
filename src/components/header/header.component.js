@@ -18,6 +18,8 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isWatchPage = location.pathname === "/watch-latter";
+  const isFavoritesPage = location.pathname === "/favorites";
 
   const logOutOfApp = () => {
     dispatch(resetUser());
@@ -37,7 +39,7 @@ const HeaderPart = ({ inputValue, handleChange }) => {
 
   return (
     <div className="header-container">
-      <Link className="home-link" to="/">
+      <Link className={"home-link"} to="/">
         <p className="movies-title">Movies</p>
         <span className="break">/</span>
         <p className="tvS">TvSeries</p>
@@ -71,11 +73,19 @@ const HeaderPart = ({ inputValue, handleChange }) => {
             </p>
             <span className="popUp-progress"></span>
           </div>
-          <Link className="watch-link" to="/watch-latter">
+          <Link
+            className={`watch-link ${isWatchPage ? "watch-link-active" : ""}`}
+            to="/watch-latter"
+          >
             Watch
           </Link>
           <span className="header-line"></span>
-          <Link className="favorites-link" to="/favorites">
+          <Link
+            className={`favorites-link ${
+              isFavoritesPage ? "favorites-link-active" : ""
+            }`}
+            to="/favorites"
+          >
             Favorites
           </Link>
           <span className="header-line"></span>
